@@ -1929,7 +1929,8 @@
                 {{ resultats['prediction'] }}
             </td>
             <td class="probabilite {% if resultats['prediction'] == 1 %}valeur-verte{% else %}valeur-rouge{% endif %}">
-                {{ '%.2f' | format(resultats['probabilite_risque_solde']) }}
+                <!-- {{ '%.2f' | format(resultats['probabilite_risque_solde']) }} -->
+                {{ resultats['probabilite_risque_solde'] }}
             </td>
         </tr>
     </table>
