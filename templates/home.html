@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire de prédiction</title>
+</head>
+<body>
+    <h1>Formulaire de prédiction</h1>
+    <form action="/predict" method="POST">
+        <label for="Age">Âge :</label>
+        <input type="number" name="Age" required><br>
+
+        <label for="Sex">Sexe :</label>
+        <select name="Sex" required>
+            <option value="male">Homme</option>
+            <option value="female">Femme</option>
+        </select><br>
+
+        <label for="Job">Job :</label>
+        <input type="number" name="Job" required><br>
+
+        <label for="Housing">Logement :</label>
+        <select name="Housing" required>
+            <option value="own">Propriétaire</option>
+            <option value="rent">Locataire</option>
+            <option value="free">Gratuit</option>
+        </select><br>
+
+        <label for="SavingAccounts">Comptes épargne :</label>
+        <select name="SavingAccounts" required>
+            <option value="little">Peu</option>
+            <option value="moderate">Modéré</option>
+            <option value="quite rich">Assez riche</option>
+            <option value="rich">Riche</option>
+        </select><br>
+
+        <label for="CheckingAccount">Compte courant :</label>
+        <select name="CheckingAccount" required>
+            <option value="little">Peu</option>
+            <option value="moderate">Modéré</option>
+            <option value="rich">Riche</option>
+        </select><br>
+
+        <label for="CreditAmount">Montant du crédit :</label>
+        <input type="number" name="CreditAmount" required><br>
+
+        <label for="Duration">Durée :</label>
+        <input type="number" name="Duration" required><br>
+
+        <label for="Purpose">Motif :</label>
+        <select name="Purpose" required>
+            <option value="radio/TV">Radio/TV</option>
+            <option value="education">Éducation</option>
+            <option value="furniture/equipment">Meubles/Équipement</option>
+            <option value="car">Voiture</option>
+            <option value="business">Affaires</option>
+            <option value="domestic appliances">Appareils domestiques</option>
+            <option value="repairs">Réparations</option>
+            <option value="vacation/others">Vacances/Autres</option>
+        </select><br>
+
+        <button type="submit">Prédire</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+Erreur d'installation de scipy
+
+Téléchargez le .whl directement via wget :
+wget https://files.pythonhosted.org/packages/47/78/b0c2c23880dd1e99e938ad49ccfb011ae353758a2dc5ed7ee59baff684c3/scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+Ensuite, installez-le localement :
+pip install --no-cache-dir scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+Github: git@github.com:Ines-05/Hack2Hire_TechTech_DataScience_18.git
+
+gcloud and env solving:
+
+source /home/ser3nity/Hack2Hire_TechTech_DataScience_18/env/bin/activate
+ln -s /home/ser3nity/Downloads/google-cloud-cli-linux-x86_64/google-cloud-sdk/bin/gcloud /home/ser3nity/Hack2Hire_TechTech_DataScience_18/env/bin/gcloud
+
+
+
+gcloud builds submit --tag gcr.io/hack2hire-445013/Hack2Hire_TechTech_DataScience_18
