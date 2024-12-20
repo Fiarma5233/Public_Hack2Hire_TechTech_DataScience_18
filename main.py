@@ -211,6 +211,45 @@
 # if __name__ == "__main__":
 #     app.run(debug=True, port=8082)
 
+
+
+
+
+
+
+
+
+
+#############################
+
+
+import sys
+import os
+
+# Ajouter le dossier 'modele' au sys.path
+current_dir = os.getcwd()  # Cela donne le répertoire actuel du script
+modele_path = os.path.join(current_dir, 'modele')  # Chemin vers le dossier 'modele'
+sys.path.append(modele_path)  # Ajouter ce chemin à sys.path
+
+# Maintenant, vous pouvez importer votre classe depuis 'outlier_clipper.py'
+from modele.outlier_clipper import OutlierClipper
+
+# Maintenant, vous pouvez importer votre classe depuis le fichier 'outlier_clipper.py'
+#from outlier_clipper import OutlierClipper
+
+# Testez l'importation
+print("Classe OutlierClipper importée avec succès !")
+
+
+
+##############################
+
+
+
+
+
+
+
 from pydantic import BaseModel
 import numpy as np
 import pandas as pd  # Manipulation des données
@@ -218,8 +257,19 @@ import joblib  # Charger le modèle sauvegardé
 from flask import Flask, jsonify, request, render_template
 import xlrd
 
+import sys
+import os
+import joblib
+
+# Ajouter le dossier contenant `outlier_clipper.py` au chemin Python
+#
+# Importer la classe OutlierClipper
+#from outlier_clipper import OutlierClipper
+
 # Charger le modèle logistic depuis le disque
-modele = joblib.load('pipeline_modele_logistic_regression.pkl')
+#modele = joblib.load('pipeline_modele_logistic_regression.pkl')
+modele = joblib.load(os.path.join(os.getcwd(), 'pipeline_modele_logistic_regression.pkl'))
+
 
 # Définition du schéma des données d'entrée avec Pydantic
 class DonneesEntree(BaseModel):
