@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Résultats des prédictions en batch</title>
@@ -32,5 +32,145 @@
     <h1>Résultats des prédictions</h1>
     {{ table | safe }}
     <a href="/" class="btn">Retour à l'accueil</a>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats des prédictions en batch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Résultats des prédictions</h1>
+    {{ table | safe }}
+    <form method="POST" action="/download">
+        <label for="format">Choisissez le format :</label>
+        <select name="format" id="format">
+            <option value="csv">CSV</option>
+            <option value="xlsx">XLSX</option>
+        </select>
+        <button type="submit" class="btn">Télécharger</button>
+    </form>
+    <a href="/" class="btn">Retour à l'accueil</a>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats des prédictions en batch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .left {
+            text-align: left;
+        }
+        .right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Résultats des prédictions</h1>
+    
+    <!-- Conteneur pour les boutons -->
+    <div class="container">
+        <!-- Bouton "Retour à l'accueil" à gauche -->
+        <div class="left">
+            <a href="/" class="btn">Nouvelle Prediction</a>
+        </div>
+
+        <!-- Bouton "Télécharger" à droite -->
+        <div class="right">
+            <form method="POST" action="/download" style="display: inline;">
+                <label for="format" style="margin-right: 10px;">Choisissez le format :</label>
+                <select name="format" id="format" style="margin-right: 10px;">
+                    <option value="csv">CSV</option>
+                    <option value="xlsx">XLSX</option>
+                </select>
+                <button type="submit" class="btn">Télécharger</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Affichage du tableau -->
+    {{ table | safe }}
 </body>
 </html>

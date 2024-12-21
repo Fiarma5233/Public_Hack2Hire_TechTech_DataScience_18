@@ -1,252 +1,4 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Formulaire de prédiction</title>
-</head>
-<body>
-    <h1>Formulaire de prédiction</h1>
-    <form action="/predict" method="POST">
-        <label for="Age">Âge :</label>
-        <input type="number" name="Age" required><br>
-
-        <label for="Sex">Sexe :</label>
-        <select name="Sex" required>
-            <option value="male">Homme</option>
-            <option value="female">Femme</option>
-        </select><br>
-
-        <label for="Job">Job :</label>
-        <input type="number" name="Job" required><br>
-
-        <label for="Housing">Logement :</label>
-        <select name="Housing" required>
-            <option value="own">Propriétaire</option>
-            <option value="rent">Locataire</option>
-            <option value="free">Gratuit</option>
-        </select><br>
-
-        <label for="SavingAccounts">Comptes épargne :</label>
-        <select name="SavingAccounts" required>
-            <option value="little">Peu</option>
-            <option value="moderate">Modéré</option>
-            <option value="quite rich">Assez riche</option>
-            <option value="rich">Riche</option>
-        </select><br>
-
-        <label for="CheckingAccount">Compte courant :</label>
-        <select name="CheckingAccount" required>
-            <option value="little">Peu</option>
-            <option value="moderate">Modéré</option>
-            <option value="rich">Riche</option>
-        </select><br>
-
-        <label for="CreditAmount">Montant du crédit :</label>
-        <input type="number" name="CreditAmount" required><br>
-
-        <label for="Duration">Durée :</label>
-        <input type="number" name="Duration" required><br>
-
-        <label for="Purpose">Motif :</label>
-        <select name="Purpose" required>
-            <option value="radio/TV">Radio/TV</option>
-            <option value="education">Éducation</option>
-            <option value="furniture/equipment">Meubles/Équipement</option>
-            <option value="car">Voiture</option>
-            <option value="business">Affaires</option>
-            <option value="domestic appliances">Appareils domestiques</option>
-            <option value="repairs">Réparations</option>
-            <option value="vacation/others">Vacances/Autres</option>
-        </select><br>
-
-        <button type="submit">Prédire</button>
-    </form>
-</body>
-</html> -->
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Formulaire de prédiction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f9f9f9;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #007BFF;
-            color: white;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group select, .form-group input {
-            width: 100%;
-        }
-
-        .form-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .form-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    <h1>Veuillez renseigner les Caracteristiques du client</h1>
-
-    <form action="/predict" method="POST">
-        <div class="form-group">
-            <label for="Age">Âge :</label>
-            <input type="number" name="Age" required>
-        </div>
-
-        <div class="form-group">
-            <label for="Sex">Sexe :</label>
-            <select name="Sex" required>
-                <option value="male">Homme</option>
-                <option value="female">Femme</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="Job">Job :</label>
-            <input type="number" name="Job" required>
-        </div>
-
-        <div class="form-group">
-            <label for="Housing">Logement :</label>
-            <select name="Housing" required>
-                <option value="own">Propriétaire</option>
-                <option value="rent">Locataire</option>
-                <option value="free">Gratuit</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="SavingAccounts">Comptes épargne :</label>
-            <select name="SavingAccounts" required>
-                <option value="little">Peu</option>
-                <option value="moderate">Modéré</option>
-                <option value="quite rich">Assez riche</option>
-                <option value="rich">Riche</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="CheckingAccount">Compte courant :</label>
-            <select name="CheckingAccount" required>
-                <option value="little">Peu</option>
-                <option value="moderate">Modéré</option>
-                <option value="rich">Riche</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="CreditAmount">Montant du crédit :</label>
-            <input type="number" name="CreditAmount" required>
-        </div>
-
-        <div class="form-group">
-            <label for="Duration">Durée :</label>
-            <input type="number" name="Duration" required>
-        </div>
-
-        <div class="form-group">
-            <label for="Purpose">Motif :</label>
-            <select name="Purpose" required>
-                <option value="radio/TV">Radio/TV</option>
-                <option value="education">Éducation</option>
-                <option value="furniture/equipment">Meubles/Équipement</option>
-                <option value="car">Voiture</option>
-                <option value="business">Affaires</option>
-                <option value="domestic appliances">Appareils domestiques</option>
-                <option value="repairs">Réparations</option>
-                <option value="vacation/others">Vacances/Autres</option>
-            </select>
-        </div>
-
-        <button type="submit">Prédire</button>
-    </form>
-
-    
-    
-    <br><br>
-    <br><br>
-
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <h2>Téléchargez un fichier pour prédiction en batch</h2>
-        <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
-        <button type="submit">Soumettre</button>
-    </form>
-
-    {% if erreur %}
-    <div id="errorPopup">{{ erreur }}</div>
-    <script>
-        // Affichage du pop-up d'erreur pendant 3 secondes
-        setTimeout(function() {
-            var errorPopup = document.getElementById('errorPopup');
-            errorPopup.style.display = 'block';
-            setTimeout(function() {
-                errorPopup.style.display = 'none';
-            }, 3000); // Masquer après 3 secondes
-        }, 100);
-    </script>
-    {% endif %}
-</body>
-</html>
-
- -->
+<!-- 
 
 
  <!DOCTYPE html>
@@ -345,7 +97,6 @@
 <body>
     <h1>Veuillez renseigner les caractéristiques du client</h1>
 
-    <!-- Formulaire de prédiction -->
     <form action="/predict" method="POST">
         <div class="form-group">
             <label for="Age">Âge :</label>
@@ -423,14 +174,12 @@
     <br><br>
     <br><br>
 
-    <!-- Formulaire pour télécharger un fichier pour prédiction en batch -->
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <h2>Téléchargez un fichier pour prédiction en batch</h2>
         <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
         <button type="submit">Soumettre</button>
     </form>
 
-    <!-- Pop-up d'erreur -->
     {% if erreur %}
     <div id="errorPopup">{{ erreur }}</div>
     <script>
@@ -444,5 +193,651 @@
         }, 100);
     </script>
     {% endif %}
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire de prédiction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Styles pour le pop-up d'erreur */
+        #errorPopup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px 20px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            display: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Veuillez renseigner les caractéristiques du client</h1>
+
+    <!- Formulaire de prédiction ->
+    <form action="/predict" method="POST">
+        <div class="form-group">
+            <label for="Age">Âge :</label>
+            <input type="number" name="Age" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Sex">Sexe :</label>
+            <select name="Sex" required>
+                <option value="male">Homme</option>
+                <option value="female">Femme</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Job">Job :</label>
+            <select name="Job" required>
+                <option value="0">Non qualifié et non-résident</option>
+                <option value="1">Non qualifié et résident</option>
+                <option value="2">Qualifié</option>
+                <option value="3">Hautement qualifié</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Housing">Logement :</label>
+            <select name="Housing" required>
+                <option value="own">Propriétaire</option>
+                <option value="rent">Locataire</option>
+                <option value="free">Gratuit</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="SavingAccounts">Comptes épargne :</label>
+            <select name="SavingAccounts" required>
+                <option value="little">Peu</option>
+                <option value="moderate">Modéré</option>
+                <option value="quite rich">Assez riche</option>
+                <option value="rich">Riche</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="CheckingAccount">Compte courant :</label>
+            <select name="CheckingAccount" required>
+                <option value="little">Peu</option>
+                <option value="moderate">Modéré</option>
+                <option value="rich">Riche</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="CreditAmount">Montant du crédit :</label>
+            <input type="number" name="CreditAmount" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Duration">Durée :</label>
+            <input type="number" name="Duration" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Purpose">Motif :</label>
+            <select name="Purpose" required>
+                <option value="radio/TV">Radio/TV</option>
+                <option value="education">Éducation</option>
+                <option value="furniture/equipment">Meubles/Équipement</option>
+                <option value="car">Voiture</option>
+                <option value="business">Affaires</option>
+                <option value="domestic appliances">Appareils domestiques</option>
+                <option value="repairs">Réparations</option>
+                <option value="vacation/others">Vacances/Autres</option>
+            </select>
+        </div>
+
+        <button type="submit">Prédire</button>
+    </form>
+
+    <br><br>
+    <br><br>
+
+    <!- Formulaire pour télécharger un fichier pour prédiction en batch --
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <h2>Téléchargez un fichier pour prédiction en batch</h2>
+        <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
+        <button type="submit">Soumettre</button>
+    </form>
+
+    {% if erreur %}
+    <div id="errorPopup">{{ erreur }}</div>
+    <script>
+        // Affichage du pop-up d'erreur pendant 3 secondes
+        setTimeout(function() {
+            var errorPopup = document.getElementById('errorPopup');
+            errorPopup.style.display = 'block';
+            setTimeout(function() {
+                errorPopup.style.display = 'none';
+            }, 10000); // Masquer après 3 secondes
+        }, 100);
+    </script>
+    {% endif %}
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire de prédiction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .form-container {
+            width: 48%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Styles pour le pop-up d'erreur */
+        #errorPopup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px 20px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            display: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hackathon 2024</h1>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Formulaire de prédiction</h2>
+            <form action="/predict" method="POST">
+                <div class="form-group">
+                    <label for="Age">Âge :</label>
+                    <input type="number" name="Age" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Sex">Sexe :</label>
+                    <select name="Sex" required>
+                        <option value="male">Homme</option>
+                        <option value="female">Femme</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Job">Job :</label>
+                    <select name="Job" required>
+                        <option value="0">Non qualifié et non-résident</option>
+                        <option value="1">Non qualifié et résident</option>
+                        <option value="2">Qualifié</option>
+                        <option value="3">Hautement qualifié</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Housing">Logement :</label>
+                    <select name="Housing" required>
+                        <option value="own">Propriétaire</option>
+                        <option value="rent">Locataire</option>
+                        <option value="free">Gratuit</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="SavingAccounts">Comptes épargne :</label>
+                    <select name="SavingAccounts" required>
+                        <option value="little">Peu</option>
+                        <option value="moderate">Modéré</option>
+                        <option value="quite rich">Assez riche</option>
+                        <option value="rich">Riche</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="CheckingAccount">Compte courant :</label>
+                    <select name="CheckingAccount" required>
+                        <option value="little">Peu</option>
+                        <option value="moderate">Modéré</option>
+                        <option value="rich">Riche</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="CreditAmount">Montant du crédit :</label>
+                    <input type="number" name="CreditAmount" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Duration">Durée :</label>
+                    <input type="number" name="Duration" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Purpose">Motif :</label>
+                    <select name="Purpose" required>
+                        <option value="radio/TV">Radio/TV</option>
+                        <option value="education">Éducation</option>
+                        <option value="furniture/equipment">Meubles/Équipement</option>
+                        <option value="car">Voiture</option>
+                        <option value="business">Affaires</option>
+                        <option value="domestic appliances">Appareils domestiques</option>
+                        <option value="repairs">Réparations</option>
+                        <option value="vacation/others">Vacances/Autres</option>
+                    </select>
+                </div>
+
+                <button type="submit">Prédire</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Téléchargez un fichier pour prédiction en batch</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
+                <button type="submit">Soumettre</button>
+            </form>
+        </div>
+    </div>
+
+    {% if erreur %}
+    <div id="errorPopup">{{ erreur }}</div>
+    <script>
+        // Affichage du pop-up d'erreur pendant 3 secondes
+        setTimeout(function() {
+            var errorPopup = document.getElementById('errorPopup');
+            errorPopup.style.display = 'block';
+            setTimeout(function() {
+                errorPopup.style.display = 'none';
+            }, 10000); // Masquer après 10 secondes
+        }, 100);
+    </script>
+    {% endif %}
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire de prédiction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .form-container {
+            width: 48%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select {
+            width: calc(100% - 10px); /* Assure un espacement interne */
+            padding: 10px;
+            margin: 10px 0; /* Espace extérieur pour chaque champ */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; /* Inclure padding et border */
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column; /* Aligner les champs verticalement */
+            margin-bottom: 20px; /* Ajout d’espace entre les champs */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+            gap: 20px; /* Espace entre les colonnes et les lignes */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    /* Styles pour le pop-up d'erreur */
+    #errorPopup {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px 20px;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        display: none;
+        z-index: 9999;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Data Science Hack2Hire | Team 18</h1>
+
+    <div class="container">
+        <!-- Formulaire de prédiction -->
+        <div class="form-container">
+            <h2>Formulaire de prédiction</h2>
+            <form action="/predict" method="POST">
+                <div class="grid-container">
+                    <div class="form-group">
+                        <label for="Age">Âge :</label>
+                        <input type="number" name="Age" id="Age" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Sex">Sexe :</label>
+                        <select name="Sex" id="Sex" required>
+                            <option value="male">Homme</option>
+                            <option value="female">Femme</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Job">Job :</label>
+                        <select name="Job" id="Job" required>
+                            <option value="0">Non qualifié et non-résident</option>
+                            <option value="1">Non qualifié et résident</option>
+                            <option value="2">Qualifié</option>
+                            <option value="3">Hautement qualifié</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Housing">Logement :</label>
+                        <select name="Housing" id="Housing" required>
+                            <option value="own">Propriétaire</option>
+                            <option value="rent">Locataire</option>
+                            <option value="free">Gratuit</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SavingAccounts">Comptes épargne :</label>
+                        <select name="SavingAccounts" id="SavingAccounts" required>
+                            <option value="little">Peu</option>
+                            <option value="moderate">Modéré</option>
+                            <option value="quite rich">Assez riche</option>
+                            <option value="rich">Riche</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="CheckingAccount">Compte courant :</label>
+                        <select name="CheckingAccount" id="CheckingAccount" required>
+                            <option value="little">Peu</option>
+                            <option value="moderate">Modéré</option>
+                            <option value="rich">Riche</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="CreditAmount">Montant du crédit :</label>
+                        <input type="number" name="CreditAmount" id="CreditAmount" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Duration">Durée :</label>
+                        <input type="number" name="Duration" id="Duration" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Purpose">Motif :</label>
+                        <select name="Purpose" id="Purpose" required>
+                            <option value="radio/TV">Radio/TV</option>
+                            <option value="education">Éducation</option>
+                            <option value="furniture/equipment">Meubles/Équipement</option>
+                            <option value="car">Voiture</option>
+                            <option value="business">Affaires</option>
+                            <option value="domestic appliances">Appareils domestiques</option>
+                            <option value="repairs">Réparations</option>
+                            <option value="vacation/others">Vacances/Autres</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit">Prédire</button>
+            </form>
+        </div>
+
+        <!-- Formulaire pour télécharger un fichier pour prédiction en batch -->
+        <div class="form-container">
+            <h2>Téléchargez un fichier pour prédiction en batch</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
+                <button type="submit">Soumettre</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Téléchargez un fichier pour prédiction en batch</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
+            <button type="submit">Soumettre</button>
+        </form>
+    </div>
+</div>
+
+{% if erreur %}
+<div id="errorPopup">{{ erreur }}</div>
+<script>
+    // Affichage du pop-up d'erreur pendant 3 secondes
+    setTimeout(function() {
+        var errorPopup = document.getElementById('errorPopup');
+        errorPopup.style.display = 'block';
+        setTimeout(function() {
+            errorPopup.style.display = 'none';
+        }, 10000); // Masquer après 10 secondes
+    }, 100);
+</script>
+{% endif %}
 </body>
 </html>

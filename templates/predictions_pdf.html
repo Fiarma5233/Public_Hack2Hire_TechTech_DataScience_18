@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats des prédictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        h2 {
+            color: #007BFF;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .probabilite {
+            font-weight: bold;
+        }
+
+        .prediction {
+            font-weight: bold;
+        }
+
+        .peut {
+            color: green;
+            font-weight: bold;
+        }
+
+        .ne-peut-pas {
+            color: red;
+            font-weight: bold;
+        }
+
+        .valeur-verte {
+            color: green;
+        }
+
+        .valeur-rouge {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Résultats des prédictions</h1>
+
+    <h3>Récapitulatif des données saisies :</h3>
+    <table>
+        <tr>
+            <th>Caractéristiques</th>
+            <th>Valeurs</th>
+        </tr>
+        {% set noms_variables_fr = {
+            'Age': 'Âge',
+            'Sex': 'Sexe',
+            'Job': 'Travail',
+            'Housing': 'Logement',
+            'SavingAccounts': 'Comptes d\'épargne',
+            'CheckingAccount': 'Compte courant',
+            'CreditAmount': 'Montant du crédit',
+            'Duration': 'Durée',
+            'Purpose': 'Objectif'
+        } %}
+        
+        {% for key, value in resultats.items() %}
+            {% if key not in ['prediction', 'probabilite_risque_solde'] %}
+                <tr>
+                    <td>{{ noms_variables_fr[key] if key in noms_variables_fr else key }}</td>
+                    <td>
+                        {% if key == "Sex" %}
+                            {% if value == "male" %}
+                                Homme
+                            {% elif value == "female" %}
+                                Femme
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% elif key == "Job" %}
+                            {% if value|string == "0" %}
+                                Non qualifié et non-résident
+                            {% elif value|string == "1" %}
+                                Non qualifié et résident
+                            {% elif value|string == "2" %}
+                                Qualifié
+                            {% elif value|string == "3" %}
+                                Hautement qualifié
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% elif key == "Housing" %}
+                            {% if value == "own" %}
+                                Propriétaire
+                            {% elif value == "rent" %}
+                                Locataire
+                            {% elif value == "free" %}
+                                Gratuit
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% elif key == "SavingAccounts" %}
+                            {% if value == "little" %}
+                                Peu
+                            {% elif value == "moderate" %}
+                                Modéré
+                            {% elif value == "quite rich" %}
+                                Assez riche
+                            {% elif value == "rich" %}
+                                Riche
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% elif key == "CheckingAccount" %}
+                            {% if value == "little" %}
+                                Peu
+                            {% elif value == "moderate" %}
+                                Modéré
+                            {% elif value == "rich" %}
+                                Riche
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% elif key == "Purpose" %}
+                            {% if value == "radio/TV" %}
+                                Radio/TV
+                            {% elif value == "education" %}
+                                Éducation
+                            {% elif value == "furniture/equipment" %}
+                                Mobilier/Équipement
+                            {% elif value == "car" %}
+                                Voiture
+                            {% elif value == "business" %}
+                                Entreprise
+                            {% elif value == "domestic appliances" %}
+                                Appareils ménagers
+                            {% elif value == "repairs" %}
+                                Réparations
+                            {% elif value == "vacation/others" %}
+                                Vacances/Autres
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% else %}
+                            {{ value }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    <h3>Résultats de la prédiction :</h3>
+    <table>
+        <tr>
+            <th>Prédiction</th>
+            <th>Probabilité</th>
+        </tr>
+        <tr>
+            <td class="prediction {% if resultats['prediction'] == 1 %}valeur-verte{% else %}valeur-rouge{% endif %}">
+                {{ resultats['prediction'] }}
+            </td>
+            <td class="probabilite {% if resultats['prediction'] == 1 %}valeur-verte{% else %}valeur-rouge{% endif %}">
+                {{ resultats['probabilite_risque_solde'] }}
+            </td>
+        </tr>
+    </table>
+
+    <h3>Conclusion :</h3>
+    {% if resultats['prediction'] == 1 %}
+        <p>Le client <span class="peut">peut</span> rembourser son crédit avec une probabilité de <span class="valeur-verte">{{ '%.2f' | format(resultats['probabilite_risque_solde']) }}</span>.</p>
+    {% else %}
+        <p>Le client <span class="ne-peut-pas">ne peut pas</span> rembourser son crédit avec une probabilité de <span class="valeur-rouge">{{ '%.2f' | format(resultats['probabilite_risque_solde']) }}</span>.</p>
+    {% endif %}
+</body>
+</html>
